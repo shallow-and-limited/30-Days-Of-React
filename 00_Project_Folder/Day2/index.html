@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500|Roboto:300,400,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>30 Days Of React Challenge</title>
+  </head>
+
+  <body>
+    <div class="root"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      const rootElement = document.querySelector('.root');
+
+      let welcome = 'This is a test';
+
+      let one = 1;
+      let two = 2;
+
+      const techs = ['HTML', 'CSS', 'JavaScript'];
+
+      const author = {
+        name: 'Asabeneh',
+        title: 'Programmer',
+        country: 'Finland',
+        skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Python'],
+        getFullName: function() {
+          return this.name + ' ' + this.title;
+        }
+      }
+
+      const style = {
+        backgroundColor: 'lightblue',
+        color: 'black'
+      }
+
+      const main = (
+        <div className='header-wrapper'>
+          <h1 style={style}>{welcome}</h1>
+          <p>
+            Instructor: {author.getFullName()}
+          </p>
+          <ul>
+            {
+              techs.map((tech, index) => {
+                if(index % 2 === 0) {
+                  return <li key={index}><strong>{tech}</strong></li>
+                } else {
+                  return <li key={index}><i>{tech}</i></li>
+                }
+              })
+            }
+          </ul>
+        </div>
+      )
+
+      const app = (
+        <div>
+          {main}
+        </div>
+      )
+
+      ReactDOM.render(app, rootElement);
+
+    </script>
+  </body>
+</html>
